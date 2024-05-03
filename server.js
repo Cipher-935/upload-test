@@ -1,11 +1,11 @@
 
 const express = require("express");
 const path = require("path");
-const dotenv = require("dotenv");
-dotenv.config({path: "./config.env"});
-const cluster = require("cluster");
-const os = require("node:os");
-const cpu_length = os.availableParallelism();
+//const dotenv = require("dotenv");
+//dotenv.config({path: "./config.env"});
+//const cluster = require("cluster");
+//const os = require("node:os");
+//const cpu_length = os.availableParallelism();
 
 // if(cluster.isPrimary){
 //     for(let i = 0; i < cpu_length; i++){
