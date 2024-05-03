@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="templates/dashboard.css">
+    <script src="templates/dash.js"></script>
+</head>
+<body>
+    <div class="nav-bar">
+
+        <div class="site-header">
+            <img src="templates/logo.jpeg" width="60px" height="50px" style="border-radius: 10px;">
+            <h3 class="header-title">TubeTranser</h3>
+
+        </div>
+
+          <div class="nav-links">
+            <a href="#">File Upload</a>
+            <a href="#">Dashbaord</a>
+            <a href="#">Profile</a>
+          </div>
+
+    </div>
+        <h1 style="text-align: center;" id="g_mess">Welcome back Jay</h1>
+        <div class="main_frame">
+        </div>
+        <div class="hidden_mailer">
+            <label>Enter the email id of the person you want to send to: </label>
+            <input type="email" id="email_input">
+            <label>Enter for how long you want the link to be active in minutes</label>
+            <input type="number" id="validity">
+            <input type="hidden" id="f_key">
+            <button class="btn_send_mail">Send</button>
+        </div>
+</body>
+</html>

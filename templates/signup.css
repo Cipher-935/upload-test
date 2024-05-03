@@ -1,0 +1,8 @@
+.s_form{
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border: 2px solid black;
+    height: 400px;
+    width: 480px;
+}

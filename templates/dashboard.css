@@ -1,0 +1,142 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    background-color: darkgreen;
+    padding: 6px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.session-greeting{
+    margin-left: 10px;
+}
+
+.nav-links{
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-title{
+    color: white;
+}
+
+a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: white;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 6px;
+}
+
+a:hover{
+    background-color: rgb(21, 117, 21);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.d_div{
+    display: flex;
+    flex-direction: column;
+}
+.main_frame {
+    align-self: center;
+    width: 1200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 4px 4px 4px lightgrey;
+}
+
+.frame_headers{
+    display: flex;
+    flex-direction: row;
+
+    padding: 5px;
+}
+.data-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid grey;
+    padding: 3px;
+    margin-bottom: 10px;
+    height: fit-content;
+}
+.des_content{
+    width: 280px; 
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.span-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    width: 30px; /* Adjust button size as needed */
+    height: 20px; /* Adjust button size as needed */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.hidden_mailer{
+    display: none;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    padding: 8px;
+    font-size: 20px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    top: 50%;
+    left: 50%;
+    border: 2px solid grey;
+    transform: translate(-50%, -50%);
+}
+input{
+    width: 250px;
+    margin-top: 10px;
+}
+label{
+    margin-top: 10px;
+}
+
+
+#viewButton {
+    background-image: url('view.jpeg'); /* Replace 'view_icon.png' with your view icon image */
+    margin-right: 10px;
+    margin-left: 20px;
+}
+#deleteButton {
+    background-image: url('delete.jpeg'); /* Replace 'view_icon.png' with your view icon image */
+    margin-right: 10px;
+}
+#downloadButton {
+    margin-right: 10px;
+    background-image: url('donwload.jpeg'); /* Replace 'view_icon.png' with your view icon image */
+}
+#shareButton {
+    background-image: url('share.jpeg'); /* Replace 'view_icon.png' with your view icon image */
+}
