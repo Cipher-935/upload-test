@@ -22,23 +22,17 @@ const l_obj = rate_limiter.rateLimit({
 app.use(l_obj);
 app.use(bodyParser.urlencoded({ extended: false })); // For handling the url encoded body data often in file uploads
 app.use(express.json()); // Middleware to exchange data in json format
-
-app.use(cors()); // For cross origin request handling
-
-app.use('/templates', express.static(path.join(__dirname, 'templates')));// Serve static files from the 'templates' directory
-
 app.use(cookie_p());
+app.use(cors({origin: '*', credentials: true})); // For cross origin request handling
+app.use('/templates', express.static(path.join(__dirname, 'templates')));// Serve static files from the 'templates' directory
 app.use("/", app_route_handler); // using the route handler to server multiple routes
 app.use("/", user_route_handler);
-
 app.get("*", (req,res) => {
     res.status(200).json({
         resp: 'Not supported'
     });
 });
-
 app.use(error_handler); // Cusotm error handler middleware imported as a file
-
 // http server listens on configured port from the env
 server.listen(process.env.PORT, () =>  {
    console.log("App has stared");
