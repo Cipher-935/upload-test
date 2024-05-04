@@ -33,7 +33,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
     
-    const rec_dat = await fetch("/list");
+    const rec_dat = await fetch("/list", {
+        method: "GET",
+        credentials: 'include'
+    });
     if(rec_dat.status === 200){
         const final_data = await rec_dat.json();
         make_template(final_data.all_files, final_data.f_name);
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
              const obj = {get_key: key_val};
              const view_command = await fetch("/download", {
                       method: "POST",
+                      credentials: 'include',
                       headers: {"Content-Type": "application/json"}, 
                       body: JSON.stringify(obj)
              });
@@ -101,6 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const valid_time = document.getElementById("validity").value;
         const send_mail = await fetch("/share_link", {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json"
             },

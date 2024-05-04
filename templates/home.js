@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
          const rec_put_link = await fetch("/upload",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
+            credentials: 'include',
             body: JSON.stringify(mfile)
          });
          if(rec_put_link.status === 200){
