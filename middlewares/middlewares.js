@@ -72,6 +72,27 @@ exports.check_cookie = async (req,res,next) => {
         }
     }
 }
+exports.sanitize_signup = async (req,res,next) => {
+    const {name, email, password} = req.body;
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,12}$/;
+    if((name.trim() === '' || name.length > 12) || email.trim() === '' || !regex.test(password.trim())){
+        return next(new error_h("Invalid or empty fields", 400));
+    }
+    else{
+        next();
+    }
+}
+
+exports.sanitize_login = async (req,res,next) => {
+    const {email, password} = req.body;
+    if((password.trim() === '' || password.length > 12) || email.trim() === ''){
+        return next(new error_h("Invalid or empty fields", 400));
+    }
+    else{
+        next();
+    }
+}
+
 
 exports.sanitize_inputs = async(req,res,next) => {
     const {file_name, file_size, file_description, file_mime} = req.body;

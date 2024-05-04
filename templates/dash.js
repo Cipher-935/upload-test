@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
     
-    const rec_dat = await fetch("http://127.0.0.1:4000/list");
+    const rec_dat = await fetch("/list");
     if(rec_dat.status === 200){
         const final_data = await rec_dat.json();
         make_template(final_data.all_files, final_data.f_name);
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
              e.preventDefault();
              const key_val = btn.getAttribute("delete-file");
              const obj = {main_key: key_val};
-             const del_command = await fetch("http://127.0.0.1:4000/delete", {
+             const del_command = await fetch("/delete", {
                       method: "POST",
                       headers: {"Content-Type": "application/json"}, 
                       body: JSON.stringify(obj)
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
              e.preventDefault();
              const key_val = btn.getAttribute("view-file");
              const obj = {get_key: key_val};
-             const view_command = await fetch("http://127.0.0.1:4000/download", {
+             const view_command = await fetch("/download", {
                       method: "POST",
                       headers: {"Content-Type": "application/json"}, 
                       body: JSON.stringify(obj)
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const file = document.getElementById("f_key").value;
         const email_id = document.getElementById("email_input").value;
         const valid_time = document.getElementById("validity").value;
-        const send_mail = await fetch("http://127.0.0.1:4000/share_link", {
+        const send_mail = await fetch("/share_link", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

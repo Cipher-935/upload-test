@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             name: username, email:user_email, password: user_pass
         };
 
-        const send_reg = await fetch("http://127.0.0.1:4000/signup", {
+        const send_reg = await fetch("/signup", {
             method: "POST",
             headers: {
                 'Content-Type': "application/json"

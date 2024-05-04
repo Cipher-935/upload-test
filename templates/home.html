@@ -10,27 +10,12 @@
     <div class="main_div">
     <h1>Welcome To File Uploads</h1>
 
-    <form>
-        <label>Enter the file name to delete form the cloud</label>
-        <input type="text" id="del-id">
-        <button class="delete_btn">Delete</button>
-    </form>
-
-    <form>
-        <label>Enter the file_name to download it</label>
-           <input type="text" id="file_name">
-           <button class="get-url">Get URL</button>
-    </form>
-
     <form enctype="multipart/form-data">
           <label>This upload will be directly to s3 with put command: </label>
           <input type="file" id="d_file">
           <textarea class="file_description" rows="20" cols="15"></textarea>
           <button class="btn_put">Put</button>
         </form>
-
-    <button class="list_btn">List</button>
-
 
 </div>
 </body>

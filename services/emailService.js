@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const sendEmail = async ({ recipient_email, OTP }) => 
 {
-    console.log('The configured email is:', process.env.MY_EMAIL);
+    console.log('The configured email is:', process.env.EMAIL);
 
     console.log('Recipient email is: ', recipient_email);
 
@@ -16,14 +16,14 @@ const sendEmail = async ({ recipient_email, OTP }) =>
         secure: false, // true for 465, false for other ports
         auth: 
         {
-            user: process.env.MY_EMAIL,
-            pass: process.env.MY_PASSWORD,
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_2FA,
         },
     });
 
     const mailConfigs =
     {
-        from: process.env.MY_EMAIL,
+        from: process.env.EMAIL,
         to: recipient_email,
         subject: "TubeTransfer email confirmation",
         html: `<!DOCTYPE html>

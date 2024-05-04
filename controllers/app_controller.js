@@ -108,8 +108,7 @@ exports.delete_object = async (req,res,next) => {
          Bucket: process.env.bucket_name,
          Key: res.locals.del_location
      };
-     const command = new DeleteObjectCommand(param);
-        
+     const command = new DeleteObjectCommand(param); 
         try{
             const del_response = await s3.send(command);
             res.status(200).json({
@@ -124,7 +123,7 @@ exports.delete_object = async (req,res,next) => {
 
 exports.dash_data = async (req,res, next) => {
     try{
-        const all_files = await file_model.find({uploaded_file_owner: res.locals.uid});
+        const all_files = await file_model.find({uploaded_file_owner: res.locals.uid}).select({_id:0 ,uploded_file_name:1, uploaded_file_description:1, uploaded_file_date:1, uploaded_file_category:1, uploaded_file_size:1});
         const user_name = await user_model.findById(res.locals.uid);
         const f_name = user_name.name;
         res.status(200).json({
@@ -158,8 +157,8 @@ exports.share_mail = async (req, res) => {
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'jay.d.mistry03@gmail.com',
-            pass: 'lpvzebfutulkbwje'
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_2FA
         }
     });
 
