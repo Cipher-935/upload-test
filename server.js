@@ -23,7 +23,7 @@ app.use(l_obj);
 app.use(bodyParser.urlencoded({ extended: false })); // For handling the url encoded body data often in file uploads
 app.use(express.json()); // Middleware to exchange data in json format
 
-app.use(cors({ origin: '*', credentials: true })); // For cross origin request handling
+app.use(cors()); // For cross origin request handling
 
 app.use('/templates', express.static(path.join(__dirname, 'templates')));// Serve static files from the 'templates' directory
 
