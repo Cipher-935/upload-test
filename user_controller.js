@@ -43,7 +43,8 @@ const user_login = async (req, res, next) => {
       res.status(200).json({
         resp: "Successfully logged in"
       });
-    } else {
+    }
+    else {
       return next(new error_h("Some error making the session", 500));
     }
   }
