@@ -32,24 +32,22 @@ const user_sign_in = async (req, res,next) => {
 const user_login = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await Users.findOne({ email });
-  if(!user){
+  if (!user) {
     return next(new error_h("Email is incorrect", 500));
-  }
-  else{
+  } else {
     const isMatch = await bcrypt.compare(password, user.password);
-    if(isMatch){
-        const pay = {u_id: user._id};
-        const token = jwt.sign(pay, process.env.sessionKey, {expiresIn: "30m"});
-        res.cookie("uid", token, {secure: true});
-        res.status(200).json({
-           resp: "Successfully logged in"
-        });
+    if (isMatch) {
+      const pay = { u_id: user._id };
+      const token = jwt.sign(pay, process.env.sessionKey, { expiresIn: "30m" });
+      res.cookie("uid", token, { maxAge: 30 * 60 * 1000 }); // Setting maxAge to 30 minutes
+      res.status(200).json({
+        resp: "Successfully logged in"
+      });
     }
-    else{
-        return next(new error_h("Some error making the session", 500));
-      }
-  
-}
+    else {
+      return next(new error_h("Some error making the session", 500));
+    }
+  }
 };
 
 const send_recovery_email = async (req, res) => 
